@@ -1,0 +1,89 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* INPUT */
+.todoh1{
+  text-align: center;
+}
+
+.todoInput{
+  
+  padding-top: 10px ;
+  padding-bottom: 10px;
+  padding-left: 44%;
+}
+
+.todoInput input{
+  /* height: 30px; */
+  width: 200px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.todoInput .btn1{
+  width: 200px;
+  margin-top: 5px;
+}
+.todoInput .btn1 button{
+
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+.todoInput .btn1 button:hover{
+  background-color: blue;
+  color: white;
+}
+
+/* OUTPUT */
+
+.todoOutput{
+  padding-top: 10px ;
+  padding-bottom: 10px;
+  padding-left: 44%;
+}
+
+
+.showOutput ul li{
+  padding-top: 5px;
+  list-style-type: none;
+}
+
+.showOutput ul li input[type='checkbox']{
+  width: 30px;
+}
+.showOutput ul li button{
+  margin-left: 5px;
+}
+.showOutput ul li button img{
+  width: 10px;
+}
+
+.showOutput ul li .valueOutput{
+  width: 210px;
+  font-size: 15px;
+} 
+
+.delbtn{
+  padding-left: 43%;
+}
+
+.delbtn button{
+  background-color: green;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.delbtn button:hover{
+  background-color: blue;
+  color: white;
+}
