@@ -10,7 +10,10 @@ function App() {
     const [job, setJob] = useState('');//Việc
     const [isComplated, setisComplated] = useState(false);
     const [indexTodos, setindexTodos] = useState(-1);
-    console.log(todos);
+    const [showAllTodos, setshowAllTodos] = useState([])
+    const [showDoneTodo, setshowDoneTodo] = useState([])
+    const [showTodo, setshowTodo] = useState([])
+    // console.log(todos);
     const addTodo = () => {
       if (job !== '') {
         if (indexTodos !== -1) {
@@ -51,6 +54,14 @@ function App() {
       const newTodos = todos.filter(todo =>!todo.isComplated);
       setTodos(newTodos);
     }
+    useEffect(()=>{
+      setshowAllTodos([todos])
+      setshowTodo(todos.filter(todo =>todo.isComplated === false))
+      setshowDoneTodo(todos.filter(todo => todo.isComplated === true)) 
+    },[todos])
+    console.log('thuan',[todos]);
+
+
   return (
      <div className="App">
     <h1 className="todoh1">TODO INPUT </h1>
@@ -72,40 +83,37 @@ function App() {
     </div>
     </div>
     <h1 className="todoh1">TODO OUTPUT</h1>
+    <div className='filter-btn'>
+      <button 
+      onClick={()=>{
+        setTodos(showAllTodos)
+      }}>All</button>
+      <button onClick={()=>{
+        setTodos(showDoneTodo)
+      }}>Done</button>
+      <button onClick={()=>{
+        setTodos(showTodo)
+      }}
+      >Todo</button>
+    </div>
     <div className='todoOutput'>
+    
     
     <Welcome todos={todos} editTodo={editTodo} removeTodo={removeTodo} complatedCheck={(index)=>{complatedCheck(index)}}/>
     </div>
     <div className='delbtn'>
-    <button onClick={removeAllTodos}>Delete all todo</button>
-    <button onClick={removeDoneTodo}>Delete done todo</button>
+    <button onClick={removeAllTodos}>Delete all task</button>
+    <button onClick={removeDoneTodo}>Delete done task</button>
     </div>
     <div>
-        
-        
-      
-        {/* <ul>
-        {todos.map((todo,index) => {//{}-> return ()-> default
-          const isComplated = todo.isComplated
-          return <li key={index}>
-          <span style={{color:isComplated ? 'red': 'black'}}>{todo.job}</span>
-          <button onClick={() => editTodo(index)}>Sửa</button>
-          <button onClick={() => removeTodo(index)}>Xóa</button>
-          <input type='checkbox' 
-          checked={isComplated} 
-          onChange={()=>{
-              complatedCheck(index)
-          }}/>
-        </li>
-          
-        })}
-      </ul> */}
     </div>
 
 
     
      </div>
   );
+
+  
   
 }
 
